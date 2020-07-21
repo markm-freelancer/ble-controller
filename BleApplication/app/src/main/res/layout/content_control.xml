@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/powerText"
+        android:text="0"
+        android:textSize="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:layout_marginTop="160dp"></TextView>
+
+    <SeekBar
+        android:id="@+id/powerBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="120dp"
+        android:min="0"
+        android:max="2000"
+        android:progress="1000"></SeekBar>
+
+    <Button
+        android:id="@+id/upButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignTop="@+id/powerBar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="85dp"
+        android:background="@drawable/image_btn_up" />
+
+    <Button
+        android:id="@+id/downButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignTop="@+id/powerBar"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:background="@drawable/image_btn_down" />
+
+    <TextView
+        android:id="@+id/deviceDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Device details"
+        android:layout_above="@+id/connectionStatus" />
+
+    <TextView
+        android:id="@+id/connectionStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Connection status: Uninitialized"
+        android:layout_above="@+id/debugText" />
+
+    <TextView
+        android:id="@+id/debugText"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text=""
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>
