@@ -133,6 +133,9 @@ public class DelegatingScanActivity extends AppCompatActivity {
         super.onResume();
         try {
             scanner.startScan();
+            if (scanner.isInitialized()) {
+                startScanStatusTimer();
+            }
         } catch (Exception e) {
             scanningText.append("\n" + e.getMessage());
         }
@@ -161,8 +164,6 @@ public class DelegatingScanActivity extends AppCompatActivity {
 
             }
         });
-
-        startScanStatusTimer();
     }
 
     @Override
@@ -176,6 +177,7 @@ public class DelegatingScanActivity extends AppCompatActivity {
 
     private boolean scanning = false;
     private Timer scanStatusTimer;
+    android.text.format.DateFormat df = new android.text.format.DateFormat();
     private void startScanStatusTimer() {
         this.scanStatusTimer = new Timer();
         this.scanStatusTimer.schedule(new TimerTask() {
@@ -184,12 +186,12 @@ public class DelegatingScanActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        scanningText.append("\nChecking scanner status...");
+                        scanningText.append("\n[" + df.format("hh:mm:ss a", new Date()) + "] Checking scanner status...");
                         scanningText.append("\n" + scanner.getStatus());
                     }
                 });
             }
-        }, 0, 2 * 1000);
+        }, 0, 10 * 1000);
     }
 
     private void log(String message) {
