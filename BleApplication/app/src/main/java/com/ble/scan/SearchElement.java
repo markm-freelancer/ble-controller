@@ -1,11 +1,16 @@
 package com.ble.scan;
 
 
+import android.bluetooth.BluetoothDevice;
+
 public class SearchElement {
     private String name;
     private String macAddress;
     private int rssiValue;
     private String rawData;
+
+    private BluetoothDevice device;
+
     public SearchElement(String name, String macAddress, int rssiValue, String rawData) {
         this.name = name;
         this.macAddress = macAddress;
@@ -43,5 +48,13 @@ public class SearchElement {
 
     public void setRssiValue(int rssiValue) {
         this.rssiValue = rssiValue;
+    }
+
+    public BluetoothDevice getDevice() {
+        return device;
+    }
+
+    public void setDevice(BluetoothDevice device) {
+        this.device = device;
     }
 }
